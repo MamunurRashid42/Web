@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 500px;
+            background: #44729f;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        .btn-register {
+            background: #e67e22;
+            color: white;
+            width: 100%;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Registration</h2>
+        <form id="registrationForm">
+            <div class="mb-3">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName">
+                <div class="error" id="firstNameError"></div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName">
+                <div class="error" id="lastNameError"></div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="email">
+                <div class="error" id="emailError"></div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone">
+                <div class="error" id="phoneError"></div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Age</label>
+                <input type="number" class="form-control" id="age" min="18" max="100">
+                <div class="error" id="ageError"></div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gender</label>
+                <div>
+                    <input type="radio" name="gender" value="male" id="male"> Male
+                    <input type="radio" name="gender" value="female" id="female"> Female
+                </div>
+                <div class="error" id="genderError"></div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" id="password">
+                <div class="error" id="passwordError"></div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword">
+                <div class="error" id="confirmPasswordError"></div>
+            </div>
+            <button type="submit" class="btn btn-register">REGISTER</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let valid = true;
+
+            // Name Validation
+            const firstName = document.getElementById('firstName').value;
+            if (firstName.trim() === '') {
+                document.getElementById('firstNameError').textContent = 'Please enter your first name.';
+                valid = false;
+            } else {
+                document.getElementById('firstNameError').textContent = '';
+            }
+
+            const lastName = document.getElementById('lastName').value;
+            if (lastName.trim() === '') {
+                document.getElementById('lastNameError').textContent = 'Please enter your last name.';
+                valid = false;
+            } else {
+                document.getElementById('lastNameError').textContent = '';
+            }
+
+            // Email Validation
+            const email = document.getElementById('email').value;
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email.';
+                valid = false;
+            } else {
+                document.getElementById('emailError').textContent = '';
+            }
+
+            // Phone Validation
+            const phone = document.getElementById('phone').value;
+            if (!/^\d{10}$/.test(phone)) {
+                document.getElementById('phoneError').textContent = 'Please enter a valid 10-digit phone number.';
+                valid = false;
+            } else {
+                document.getElementById('phoneError').textContent = '';
+            }
+
+            // Age Validation
+            const age = document.getElementById('age').value;
+            if (age < 18 || age > 100) {
+                document.getElementById('ageError').textContent = 'Age must be between 18 and 100.';
+                valid = false;
+            } else {
+                document.getElementById('ageError').textContent = '';
+            }
+
+            // Gender Validation
+            if (!document.getElementById('male').checked && !document.getElementById('female').checked) {
+                document.getElementById('genderError').textContent = 'Please select a gender.';
+                valid = false;
+            } else {
+                document.getElementById('genderError').textContent = '';
+            }
+
+            // Password Validation
+            const password = document.getElementById('password').value;
+            if (password.length < 8) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters long.';
+                valid = false;
+            } else {
+                document.getElementById('passwordError').textContent = '';
+            }
+
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+                valid = false;
+            } else {
+                document.getElementById('confirmPasswordError').textContent = '';
+            }
+
+            // Final Validation Check
+            if (valid) {
+                alert('Form submitted successfully!');
+            }
+        });
+    </script>
+</body>
+</html>
