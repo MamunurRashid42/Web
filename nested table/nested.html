@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Nested Tables</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: green;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            border: 3px solid green;
+        }
+
+        table table {
+            border: 2px solid rgb(24, 24, 217);
+            width: 90%;
+            margin: 10px auto;
+        }
+
+        td, th {
+            padding: 12px;
+            text-align: center;
+            border: 2px solid black;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: rgb(235, 233, 241);
+       
+
+        td  {
+            background-color: rgb(176, 184, 187);
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+            text-align: left;
+        }
+
+        ul li {
+            padding: 5px;
+            background-color: #9de2ed;
+            margin: 3px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Mamunur Rashid</h2>
+    <p><b>Nested Tables</b></p>
+
+    <table>
+        <tr>
+            <th>Main Table Column 1</th>
+            <th>Main Table Column 2 (Nested Table)</th>
+        </tr>
+        <tr>
+            <td>Main Table row 1 column 1</td>
+            <td>
+                <table>
+                    <tr>
+                        <th>Inner Table Column 1</th>
+                        <th>Inner Table Column 2</th>
+                    </tr>
+                    <tr>
+                        <td>Inner row 1 col 1</td>
+                        <td>Inner row 1 col 2</td>
+                    </tr>
+                    <tr>
+                        <td>Inner row 2 col 1</td>
+                        <td>Inner row 2 col 2</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>Main Table row 2 column 1</td>
+            <td>
+                <table>
+                    <tr>
+                        <th>Inner Table Column 1</th>
+                        <th>Inner Table Column 2</th>
+                    </tr>
+                    <tr>
+                        <td>Inner row 1 col 1</td>
+                        <td>Inner row 1 col 2</td>
+                    </tr>
+                    <tr>
+                        <td>Inner row 2 col 1</td>
+                        <td>Inner row 2 col 2</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="2">Language and Framework</th>
+        </tr>
+        <tr>
+            <td>Python</td>
+            <td>Django</td>
+        </tr>
+        <tr>
+            <td rowspan="2">JavaScript</td>
+            <td>React.js</td>
+        </tr>
+        <tr >
+            <td>Vue.js</td>
+        </tr>
+        <tr>
+            <td>Ruby</td>
+            <td>
+                <ul>
+                    <li>Ruby on Rails</li>
+                    <li>Sinatra</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
